@@ -1,12 +1,24 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { Restaurant } from './restaurant/restaurant.model';
-import { RESTAURANTS } from './restaurants.mock';
+import 'rxjs/add/operator/map';
+import { MEAT_API } from './../app.api';
+import { Observable } from 'rxjs/Observable';
 
+@Injectable()
 export class RestaurantsService {
 	
-	constructor() {}
+	constructor(
+		private http: Http
+	) {}
 
-	restaurants(): Restaurant[] {
-		return RESTAURANTS;
+	/**
+	 * Retorna os restaurantes
+	 */
+	restaurants(): Observable<Restaurant[]> {
+		return this.http
+			.get(`${MEAT_API}/restaurants`)
+			.map(response => response.json());
 	}
 
 }
