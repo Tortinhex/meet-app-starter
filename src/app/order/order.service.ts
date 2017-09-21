@@ -24,5 +24,9 @@ export class OrderService {
 	remove(item: CartItem) {
 		this.cartService.remove(item);
 	}
+
+	itemsValue() {
+		return this.cartService.total();
+	}
  
 }
