@@ -57,7 +57,7 @@
                     <mt-input-container>
 
                         <input 
-                            name="optional"
+                            name="optionalAddress"
                             ngModel
                             autocomplete="off"
                             type="text"
@@ -113,7 +113,7 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <button type="submit" [disabled]="!form.valid || !cartItems().length" class="btn btn-success pull-right">
+                <button (click)="checkOrder(form.value)" type="submit" [disabled]="!form.valid || !cartItems().length" class="btn btn-success pull-right">
                     <i class="fa fa-credit-card"></i> Concluir Pedido
                 </button>
             </div>
