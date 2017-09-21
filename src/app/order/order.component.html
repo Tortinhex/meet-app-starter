@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-sm-6 col-xs-12">
                     <mt-input-container 
-                        errorMessage="Endereço Obrigatório com 5 caracteres"
+                        errorMessage="Obrigatório com 5 caracteres"
                         label="Endereco">
 
                         <input 
@@ -38,9 +38,9 @@
 
                     </mt-input-container>
                 </div>
-                <div class="col-sm-2 col-xs-6">
+                <div class="col-sm-3 col-xs-6">
                     <mt-input-container 
-                        errorMessage="Número Obrigatório"
+                        errorMessage="Obrigatório e somente números"
                         label="Número">
 
                         <input 
@@ -48,6 +48,7 @@
                             ngModel
                             required
                             minlength="1"
+                            pattern="^[0-9]*$"
                             autocomplete="off"
                             type="text"
                             class="form-control"
@@ -55,7 +56,7 @@
 
                     </mt-input-container>
                 </div>
-                <div class="col-sm-4 col-xs-6">
+                <div class="col-sm-3 col-xs-6">
                     <mt-input-container>
 
                         <input 
