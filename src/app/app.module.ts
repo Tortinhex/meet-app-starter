@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ROUTES } from './app.routing';
 
@@ -36,6 +37,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpModule,
         SharedModule.forRoot(),
         // CoreModule, Obsoleto
