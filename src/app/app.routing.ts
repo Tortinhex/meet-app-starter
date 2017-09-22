@@ -20,9 +20,7 @@ export const ROUTES: Routes = [
 			{path: 'reviews', component: ReviewsComponent}
 		]
 	},
-	{path: 'order',         component: OrderComponent},
 	{path: 'order-summary', component: OrderSummaryComponent},
-
-	// Lazy Load
+	{path: 'order',         loadChildren: './order/order.module#OrderModule'},
 	{path: 'about',         loadChildren: './about/about.module#AboutModule'},
 ]
