@@ -12,7 +12,6 @@ const ROUTES: Routes = [
 		AboutComponent
 	],
 	imports: [
-		RouterModule,
 		RouterModule.forChild(ROUTES)
 	]
 })
