@@ -6,6 +6,9 @@ import { Restaurant } from './restaurant/restaurant.model';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/from';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'mt-restaurants',
@@ -51,9 +54,15 @@ export class RestaurantsComponent implements OnInit {
         });
 
         this.searchControl.valueChanges
+            // 1. Espera 500 ms até fazer uma nova busca após o termino da digitacao
+            // 2. Busca apenas resultados diferentes do ultimo
+            // 3. Pra cada um, tratar o erro retornando vazio
             .debounceTime(500)
             .distinctUntilChanged()
-            .switchMap(searchTerm => this.restaurantsService.restaurants(searchTerm))
+            .switchMap(searchTerm => 
+                this.restaurantsService.restaurants(searchTerm)
+                .catch(error => Observable.from([]))
+            )
             .subscribe(restaurants => this.restaurants = restaurants);
     }
 
